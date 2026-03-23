@@ -1,0 +1,21 @@
+proxy-groups:
+
+  - name: 🇨🇳 国内自动
+    type: url-test
+    use:
+      - provider_cn
+    url: http://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🌍 国外自动
+    type: url-test
+    use:
+      - provider_global
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+
+  - name: ♻️ 自动选择
+    type: select
+    proxies:
+      - 🇨🇳 国内自动
+      - 🌍 国外自动
